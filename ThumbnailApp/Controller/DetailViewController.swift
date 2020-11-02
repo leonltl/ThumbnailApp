@@ -2,64 +2,74 @@
 import UIKit
 import WebKit
 
+internal extension DetailViewController {
+    func findVideo(caption: String) -> String {
+        var urlAddress:String = ""
+        switch (caption) {
+            case "Lonely Railroad":
+                urlAddress = "https://youtu.be/-xNus37RhWA"
+                break
+            case "Autumn Path":
+                urlAddress = "https://youtu.be/Go4YMAws6BU"
+                break
+            case "Cloudy Hill":
+                urlAddress = "https://youtu.be/ivjZWCU9pKA"
+                break
+            case "Wind Surf":
+                urlAddress = "https://youtu.be/8bYtDBZkrpM"
+                break
+            case "Sidewalk Cafe":
+                urlAddress = "https://youtu.be/wG_FcMwoU6M"
+                break
+            case "Green Forest":
+                urlAddress = "https://youtu.be/BjaTMx8ZWK8"
+                break
+            case "Sunset Ray":
+                urlAddress = "https://youtu.be/SJJFKN3HjwU"
+                break
+            case "Elephant Family":
+                urlAddress = "https://youtu.be/gsqlpcVEsqc"
+                break
+            case "Snowy Mountain":
+                urlAddress = "https://youtu.be/ftgX04OOmNw"
+                break
+            case "Red House":
+                urlAddress = "https://youtu.be/ZZJ6tGRiI9k"
+                break
+            default:
+                break
+        }
+        
+        return urlAddress
+    }
+}
+
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var lblCaption: UILabel!
-    @IBOutlet weak var viewWebViewWrapper: UIView!
+    public var _caption:String = ""
     
-    public var caption:String = ""
-    
-    internal lazy var webView:VideoWebView = {
-        let webView = VideoWebView(frame: self.viewWebViewWrapper.frame, urlAddress: "", allowInlinePlayback: true)
-        self.viewWebViewWrapper.addSubview(webView)
-        return webView
-    }()
+    private var detailController:DetailsCollectionViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        lblCaption.text = caption
+        lblCaption.text = _caption
         lblCaption.textColor = UIColor.systemOrange
         
-        //let webViewHConstraints = NSLayoutConstraint.constraints(withVisualFormat: ("H:|-0-[v0]-0-|"), options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": self.webView])
-        //let webViewVConstraints = NSLayoutConstraint.constraints(withVisualFormat: ("V:|-0-[v0]-0-|"), options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": self.webView])
-        
-        //viewWebViewWrapper.addConstraints(webViewHConstraints)
-        //viewWebViewWrapper.addConstraints(webViewVConstraints)
-        
-        
-        switch (caption) {
-            case "Lonely Railroad":
-                self.webView.urlAddress = "https://youtu.be/-xNus37RhWA"
-                self.webView.playVideo()
-                break
-            case "Autumn Path":
-                self.webView.urlAddress = "https://youtu.be/Go4YMAws6BU"
-                self.webView.playVideo()
-                break
-            case "Cloudy Hill":
-                self.webView.urlAddress = "https://youtu.be/ivjZWCU9pKA"
-                self.webView.playVideo()
-                break
-            default:
-                break
+        let urlAddress = self.findVideo(caption: _caption)
+        detailController?.playVideo(urlAddress: urlAddress)
+    }
+    
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "detailViewSegue") {
+            let embedVC = segue.destination as! DetailsCollectionViewController
+            detailController = embedVC
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        webView.frame = CGRect(x: 0, y: 0, width: self.viewWebViewWrapper.frame.width, height: self.viewWebViewWrapper.frame.height)
-    }
-        
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

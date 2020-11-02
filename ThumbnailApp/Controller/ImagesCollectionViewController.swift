@@ -143,7 +143,7 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
             let embedVC = segue.destination as! DetailViewController
             detailController = embedVC
             //print(sender)
-            detailController?.caption = sender as? String ?? ""
+            detailController?._caption = sender as? String ?? ""
         }
     }
     

@@ -76,14 +76,7 @@ class VideoWebView: WKWebView {
             let videoLink: String?
 
             // If vimeo URL embedded vimeo player
-            if(url.host?.contains("vimeo.com") ?? false) {
-
-                let query = playsInline ? "?playsinline=1" : ""
-                videoLink = "https://player.vimeo.com/video/" + url.lastPathComponent + query
-
-            // If YouTube URL embedded YouTube player
-            }
-            else if(url.host?.contains("youtu") ?? false) {
+            if(url.host?.contains("youtu") ?? false) {
 
                 // Fool proof video ID decoding
                 let host = "https://www.youtube.com/embed/"

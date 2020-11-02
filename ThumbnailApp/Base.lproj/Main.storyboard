@@ -207,33 +207,86 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jlc-xk-Q7a">
-                                <rect key="frame" x="0.0" y="65" width="414" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="1yr-gb-sAe"/>
-                                </constraints>
-                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieM-RO-h7s">
+                                <rect key="frame" x="0.0" y="57" width="414" height="643"/>
+                                <connections>
+                                    <segue destination="JyL-Z0-hlA" kind="embed" identifier="detailViewSegue" id="but-bw-YGX"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ldg-m9-yki"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XKU-bm-U7c" firstAttribute="leading" secondItem="ldg-m9-yki" secondAttribute="leading" constant="16" id="Fex-6L-Fms"/>
-                            <constraint firstItem="Jlc-xk-Q7a" firstAttribute="top" secondItem="XKU-bm-U7c" secondAttribute="bottom" constant="24" id="ORE-V0-Jxu"/>
-                            <constraint firstItem="ldg-m9-yki" firstAttribute="trailing" secondItem="Jlc-xk-Q7a" secondAttribute="trailing" id="P5U-6P-0xA"/>
-                            <constraint firstItem="Jlc-xk-Q7a" firstAttribute="leading" secondItem="ldg-m9-yki" secondAttribute="leading" id="Xvv-iD-HWX"/>
                             <constraint firstItem="XKU-bm-U7c" firstAttribute="top" secondItem="ldg-m9-yki" secondAttribute="top" constant="20" id="dTD-zb-1PH"/>
                             <constraint firstItem="ldg-m9-yki" firstAttribute="trailing" secondItem="XKU-bm-U7c" secondAttribute="trailing" constant="16" id="dn2-L8-ZCx"/>
+                            <constraint firstItem="ieM-RO-h7s" firstAttribute="bottom" secondItem="ldg-m9-yki" secondAttribute="bottom" id="iS2-mh-Vkr"/>
+                            <constraint firstItem="ieM-RO-h7s" firstAttribute="leading" secondItem="ldg-m9-yki" secondAttribute="leading" id="mnQ-NB-oTh"/>
+                            <constraint firstItem="ieM-RO-h7s" firstAttribute="top" secondItem="XKU-bm-U7c" secondAttribute="bottom" constant="16" id="osr-1L-t1E"/>
+                            <constraint firstItem="ieM-RO-h7s" firstAttribute="trailing" secondItem="ldg-m9-yki" secondAttribute="trailing" id="tQe-Xm-EAd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AaE-mS-HNk"/>
                     <connections>
                         <outlet property="lblCaption" destination="XKU-bm-U7c" id="wJ1-mh-1OL"/>
-                        <outlet property="viewWebViewWrapper" destination="Jlc-xk-Q7a" id="Hv3-HG-Q4P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVw-XD-UOU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1940.5797101449277" y="103.79464285714285"/>
+        </scene>
+        <!--Details Collection View Controller-->
+        <scene sceneID="RHI-Fk-82y">
+            <objects>
+                <collectionViewController id="JyL-Z0-hlA" customClass="DetailsCollectionViewController" customModule="ThumbnailApp" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="f6g-cR-egi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zp2-ac-38Q">
+                            <size key="itemSize" width="414" height="599"/>
+                            <size key="estimatedItemSize" width="414" height="599"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="8X4-8D-9av" customClass="DetailCollectionCell" customModule="ThumbnailApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="599"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dAT-zY-Qsl">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="599"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7U1-Fa-AfX" customClass="VideoView" customModule="ThumbnailApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="300" id="0ut-tE-uaU"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7U1-Fa-AfX" firstAttribute="top" secondItem="dAT-zY-Qsl" secondAttribute="top" id="0Nh-WZ-FB1"/>
+                                        <constraint firstAttribute="trailing" secondItem="7U1-Fa-AfX" secondAttribute="trailing" id="BGS-x3-Uv6"/>
+                                        <constraint firstItem="7U1-Fa-AfX" firstAttribute="leading" secondItem="dAT-zY-Qsl" secondAttribute="leading" id="grI-Aj-H0m"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="414" height="599"/>
+                                <connections>
+                                    <outlet property="viewWebViewWrapper" destination="7U1-Fa-AfX" id="EL9-Hk-1lA"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="JyL-Z0-hlA" id="9ad-0r-ABP"/>
+                            <outlet property="delegate" destination="JyL-Z0-hlA" id="Qm9-Yd-fFb"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rSw-4d-MDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2847.826086956522" y="141.29464285714286"/>
         </scene>
     </scenes>
     <resources>

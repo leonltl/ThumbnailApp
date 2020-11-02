@@ -11,8 +11,28 @@
 		</dict>
 		<key>ThumbnailApp.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D7441F4D254D0ACB00E003EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7441F63254D0ACC00E003EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7441F6E254D0ACC00E003EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
