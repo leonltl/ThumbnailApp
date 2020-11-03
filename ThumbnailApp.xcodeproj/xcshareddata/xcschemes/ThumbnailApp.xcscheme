@@ -20,6 +20,34 @@
                ReferencedContainer = "container:ThumbnailApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7441F63254D0ACC00E003EB"
+               BuildableName = "ThumbnailAppTests.xctest"
+               BlueprintName = "ThumbnailAppTests"
+               ReferencedContainer = "container:ThumbnailApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7441F6E254D0ACC00E003EB"
+               BuildableName = "ThumbnailAppUITests.xctest"
+               BlueprintName = "ThumbnailAppUITests"
+               ReferencedContainer = "container:ThumbnailApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

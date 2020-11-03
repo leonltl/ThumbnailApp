@@ -10,7 +10,6 @@
 		D733601A2550517A006D10C0 /* DetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73360192550517A006D10C0 /* DetailsCollectionViewController.swift */; };
 		D733601F25505880006D10C0 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733601E25505880006D10C0 /* DetailCollectionCell.swift */; };
 		D733602425505937006D10C0 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733602325505937006D10C0 /* VideoView.swift */; };
-		D73360352550639C006D10C0 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73360342550639C006D10C0 /* LikeButton.swift */; };
 		D7441F52254D0ACB00E003EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7441F51254D0ACB00E003EB /* AppDelegate.swift */; };
 		D7441F54254D0ACB00E003EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7441F53254D0ACB00E003EB /* SceneDelegate.swift */; };
 		D7441F56254D0ACB00E003EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7441F55254D0ACB00E003EB /* MainViewController.swift */; };
@@ -29,6 +28,8 @@
 		D79F03EC254FB4A400AB3461 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F03EB254FB4A400AB3461 /* DetailViewController.swift */; };
 		D79F03FA254FDE9200AB3461 /* YoutubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F03F9254FDE9100AB3461 /* YoutubeWebView.swift */; };
 		D79F0400254FDEDB00AB3461 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F03FF254FDEDB00AB3461 /* StringUtility.swift */; };
+		D7E64C5B25518637009BC69B /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E64C5A25518636009BC69B /* BounceButton.swift */; };
+		D7E64C632551888B009BC69B /* BounceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E64C622551888B009BC69B /* BounceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,6 @@
 		D73360192550517A006D10C0 /* DetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewController.swift; sourceTree = "<group>"; };
 		D733601E25505880006D10C0 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
 		D733602325505937006D10C0 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
-		D73360342550639C006D10C0 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		D7441F4E254D0ACB00E003EB /* ThumbnailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThumbnailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7441F51254D0ACB00E003EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7441F53254D0ACB00E003EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +77,8 @@
 		D79F03EB254FB4A400AB3461 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D79F03F9254FDE9100AB3461 /* YoutubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeWebView.swift; sourceTree = "<group>"; };
 		D79F03FF254FDEDB00AB3461 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
+		D7E64C5A25518636009BC69B /* BounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
+		D7E64C622551888B009BC69B /* BounceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +172,8 @@
 				D744202D254D7C2200E003EB /* SpinnerLayer.swift */,
 				D733602325505937006D10C0 /* VideoView.swift */,
 				D79F03F9254FDE9100AB3461 /* YoutubeWebView.swift */,
-				D73360342550639C006D10C0 /* LikeButton.swift */,
+				D7E64C5A25518636009BC69B /* BounceButton.swift */,
+				D7E64C622551888B009BC69B /* BounceView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -343,11 +346,12 @@
 				D7441FB0254D1B7500E003EB /* ThumbnailInfo.swift in Sources */,
 				D744202E254D7C2200E003EB /* SpinnerLayer.swift in Sources */,
 				D79F0400254FDEDB00AB3461 /* StringUtility.swift in Sources */,
+				D7E64C5B25518637009BC69B /* BounceButton.swift in Sources */,
 				D7441F52254D0ACB00E003EB /* AppDelegate.swift in Sources */,
 				D733601F25505880006D10C0 /* DetailCollectionCell.swift in Sources */,
 				D7441FFE254D4E7400E003EB /* ThumbnailView.swift in Sources */,
+				D7E64C632551888B009BC69B /* BounceView.swift in Sources */,
 				D7441FF3254D415900E003EB /* ThumbnailCollectionCell.swift in Sources */,
-				D73360352550639C006D10C0 /* LikeButton.swift in Sources */,
 				D7441F54254D0ACB00E003EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

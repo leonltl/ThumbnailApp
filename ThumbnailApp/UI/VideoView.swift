@@ -20,7 +20,7 @@ class VideoView: UIView {
     }()
     
     /// play the video in wbvieew
-    func playVideo(urlAddress:String) {
+    func showVideo(urlAddress:String) {
         webView.urlAddress = urlAddress
         webView.playVideo()
     }

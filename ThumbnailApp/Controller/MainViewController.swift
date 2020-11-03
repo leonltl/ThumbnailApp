@@ -96,6 +96,11 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onListenToLoadPictures), name: Notification.Name("TriggerLoadPictures"), object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate.allowRotate = true
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         

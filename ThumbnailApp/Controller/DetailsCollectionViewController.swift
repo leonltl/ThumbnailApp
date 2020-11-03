@@ -8,9 +8,47 @@ extension DetailsCollectionViewController {
     }
 }
 
+// MARK: Actions and events
+extension DetailsCollectionViewController {
+    @objc func onBtnActionLikeOrDislike(sender : BounceButton){
+        
+        if sender.tag == 1 {
+            sender.setImage(UIImage(named: "heart_filled"), for: UIControl.State.normal)
+            
+        }
+        else {
+            sender.setImage(UIImage(named: "cross_filled"), for: UIControl.State.normal)
+        }
+        
+        sender.likeBounce(0.6)
+        sender.animate()
+        
+        guard let view = sender.superview else {
+            return
+        }
+        
+        view.layer.borderColor = UIColor.systemRed.cgColor
+        
+        guard let cell = view.superview?.superview as? DetailCollectionCell else {
+            return
+        }
+        
+        if sender.tag == 1 {
+            cell.btnDisLike.isUserInteractionEnabled = false
+            totalLikesCount+=1
+            cell.lblLikeCounts.text = String(totalLikesCount)
+        }
+        else {
+            cell.btnLike.isUserInteractionEnabled = false
+        }   
+    }
+    
+}
+
 class DetailsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var _urlAddress: String = ""
+    var totalLikesCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +102,38 @@ class DetailsCollectionViewController: UICollectionViewController, UICollectionV
     
         // Configure the cell
         if !_urlAddress.isEmpty {
-            cell.viewWebViewWrapper.playVideo(urlAddress: _urlAddress)
+            cell.btnLike.tag = 1
+            
+            cell.viewWebViewWrapper.showVideo(urlAddress: self._urlAddress)
+            cell.viewWrapperCount.isHidden = true
+            cell.viewWrapperDisLikes.isHidden = true
+            cell.viewWrapperLikes.isHidden = true
+            cell.btnLike.addTarget(self, action: #selector(self.onBtnActionLikeOrDislike), for: .touchUpInside)
+            cell.viewWrapperLikes.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+            cell.viewWrapperLikes.layer.masksToBounds = false
+            cell.viewWrapperLikes.layer.cornerRadius = cell.viewWrapperLikes.frame.width / 2
+            cell.viewWrapperLikes.layer.borderColor = UIColor.systemOrange.cgColor
+            cell.viewWrapperLikes.layer.borderWidth = 2.0
+            
+            cell.btnDisLike.tag = 2
+            cell.btnDisLike.addTarget(self, action: #selector(self.onBtnActionLikeOrDislike), for: .touchUpInside)
+            cell.viewWrapperDisLikes.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+            cell.viewWrapperDisLikes.layer.masksToBounds = false
+            cell.viewWrapperDisLikes.layer.cornerRadius = cell.viewWrapperDisLikes.frame.width / 2
+            cell.viewWrapperDisLikes.layer.borderColor = UIColor.systemOrange.cgColor
+            cell.viewWrapperDisLikes.layer.borderWidth = 2.0
+            
+            cell.viewWrapperCount.layer.borderColor = UIColor.systemOrange.cgColor
+            cell.viewWrapperCount.layer.borderWidth = 1.0
+            cell.lblLikeCounts.textColor = UIColor.systemOrange
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600)) {
+                cell.viewWrapperCount.isHidden = false
+                cell.viewWrapperDisLikes.isHidden = false
+                cell.viewWrapperLikes.isHidden = false
+            }
+            
+            
         }
         return cell
     }
@@ -76,6 +145,8 @@ class DetailsCollectionViewController: UICollectionViewController, UICollectionV
             return CGSize(width: view.frame.width, height: view.safeAreaLayoutGuide.layoutFrame.height)
         }
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
 

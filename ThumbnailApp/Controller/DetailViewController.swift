@@ -2,7 +2,10 @@
 import UIKit
 import WebKit
 
+// MARK: Logic Method
 internal extension DetailViewController {
+    
+    ///Method to find the correct youtube video
     func findVideo(caption: String) -> String {
         var urlAddress:String = ""
         switch (caption) {
@@ -51,6 +54,7 @@ class DetailViewController: UIViewController {
     
     private var detailController:DetailsCollectionViewController?
     
+    // MARK : Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,6 +64,13 @@ class DetailViewController: UIViewController {
         
         let urlAddress = self.findVideo(caption: _caption)
         detailController?.playVideo(urlAddress: urlAddress)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Lock the orientation for this view controller
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate.allowRotate = false
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
     

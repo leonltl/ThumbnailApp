@@ -75,7 +75,6 @@ class VideoWebView: WKWebView {
         for url in self.urls {
             let videoLink: String?
 
-            // If vimeo URL embedded vimeo player
             if(url.host?.contains("youtu") ?? false) {
 
                 // Fool proof video ID decoding
