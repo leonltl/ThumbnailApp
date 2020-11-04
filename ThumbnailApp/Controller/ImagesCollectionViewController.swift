@@ -131,8 +131,9 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (!_hasNoThumbnailToLoad) {
-            let cell = collectionView.cellForItem(at: indexPath) as! ThumbnailCollectionCell
-            self.performSegue(withIdentifier: "showInfoSegue", sender: cell.lblCaption.text)
+            //let cell = collectionView.cellForItem(at: indexPath) as! ThumbnailCollectionCell
+            let imageProperty = _thumbnailInfoData![indexPath.row]
+            self.performSegue(withIdentifier: "showInfoSegue", sender: imageProperty)
         }
     }
   
@@ -142,8 +143,7 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
         if (segue.identifier == "showInfoSegue") {
             let embedVC = segue.destination as! DetailViewController
             detailController = embedVC
-            //print(sender)
-            detailController?._caption = sender as? String ?? ""
+            detailController?._thumbnailInfo = sender as? ThumbnailInfo
         }
     }
     
