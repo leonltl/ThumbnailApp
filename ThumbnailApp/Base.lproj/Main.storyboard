@@ -314,7 +314,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="V3L-2c-ewR"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ctK-q1-chr">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ctK-q1-chr">
                                                 <rect key="frame" x="0.0" y="465" width="414" height="139"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
@@ -325,21 +325,34 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK5-2s-DYc">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK5-2s-DYc" customClass="PaddedLabel" customModule="ThumbnailApp" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="4" width="398" height="52"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Beq-qA-9ey">
+                                                                    <rect key="frame" x="380" y="2" width="20" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="OiD-aN-NTt"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="sAX-2o-KfT"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="X">
+                                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                                    </state>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="rK5-2s-DYc" firstAttribute="leading" secondItem="GxR-VJ-P5p" secondAttribute="leading" constant="8" id="EJm-bD-RDb"/>
                                                                 <constraint firstItem="rK5-2s-DYc" firstAttribute="top" secondItem="GxR-VJ-P5p" secondAttribute="top" constant="4" id="SWC-sC-Utg"/>
                                                                 <constraint firstAttribute="trailing" secondItem="rK5-2s-DYc" secondAttribute="trailing" constant="8" id="bsg-8W-UwN"/>
                                                                 <constraint firstAttribute="bottom" secondItem="rK5-2s-DYc" secondAttribute="bottom" constant="4" id="flx-MO-j9K"/>
+                                                                <constraint firstItem="Beq-qA-9ey" firstAttribute="top" secondItem="GxR-VJ-P5p" secondAttribute="top" constant="2" id="lQx-Eg-yO7"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Beq-qA-9ey" secondAttribute="trailing" constant="14" id="zAb-Es-ru7"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
+                                                            <outlet property="btnDelete" destination="Beq-qA-9ey" id="Ihk-2C-luf"/>
                                                             <outlet property="lblComment" destination="rK5-2s-DYc" id="2M7-Og-Qwn"/>
                                                         </connections>
                                                     </tableViewCell>
@@ -436,6 +449,9 @@
         <image name="error" width="256" height="256"/>
         <image name="heart_empty" width="90" height="90"/>
         <image name="heart_filled" width="90" height="90"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

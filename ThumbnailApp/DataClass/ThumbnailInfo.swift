@@ -9,6 +9,7 @@ public class BaseThumbnailInfoData {
     public var imageUrl: String = ""
     public var caption: String = ""
     public var likesCount: Int = 0
+    public var comments: [String] = [String]()
 }
 
 /// Inherit the decodable class for decoding purposes
