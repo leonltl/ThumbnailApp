@@ -5,15 +5,19 @@ import WebKit
 // MARK: Logic Method
 internal extension DetailViewController {
     
-    ///Method to find the correct youtube video
-    func findVideo(caption: String) -> String {
+    /// Method to find the correct youtube video
+    /// - Parameters:
+    ///   - caption: the caption of the video
+    /// - Returns
+    ///    The video youtube url address
+    func findYoutubeVideo(caption: String) -> String {
         var urlAddress:String = ""
         switch (caption) {
             case "Lonely Railroad":
-                urlAddress = "https://youtu.be/-xNus37RhWA"
+                urlAddress = "https://youtu.be/CUlJzfQ-Blc"
                 break
             case "Autumn Path":
-                urlAddress = "https://youtu.be/Go4YMAws6BU"
+                urlAddress = "https://youtu.be/kC4KdE4j-HY"
                 break
             case "Cloudy Hill":
                 urlAddress = "https://youtu.be/ivjZWCU9pKA"
@@ -34,10 +38,10 @@ internal extension DetailViewController {
                 urlAddress = "https://youtu.be/gsqlpcVEsqc"
                 break
             case "Snowy Mountain":
-                urlAddress = "https://youtu.be/ftgX04OOmNw"
+                urlAddress = "https://youtu.be/k4j3GSrkTbE"
                 break
             case "Red House":
-                urlAddress = "https://youtu.be/ZZJ6tGRiI9k"
+                urlAddress = "https://youtu.be/q5z-pl2GxC0"
                 break
             default:
                 break
@@ -49,6 +53,7 @@ internal extension DetailViewController {
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    /// ux variables
     @IBOutlet weak var tblCommentsList: UITableView!
     @IBOutlet weak var lblCaption: UILabel!
     @IBOutlet weak var viewWebViewWrapper: VideoView!
@@ -60,97 +65,107 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var lblLikeCounts: UILabel!
     @IBOutlet weak var textFieldBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var txtWriteComment: UITextField!
+    
+    /// non ux variables
     public var _thumbnailInfo:ThumbnailInfo?
-    var _urlAddress: String = ""
-    var _cellHeight: CGFloat = 80
+    internal var _cellHeight: CGFloat = 80
 
     // MARK : Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        lblCaption.text = _thumbnailInfo?.caption
-        lblCaption.textColor = UIColor.systemOrange
-        
-        viewWrapperCount.isHidden = true
-        viewWrapperDisLikes.isHidden = true
-        viewWrapperLikes.isHidden = true
-        
-        btnLike.tag = 11
-        btnLike.isUserInteractionEnabled = true
-        viewWrapperLikes.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        viewWrapperLikes.layer.masksToBounds = false
-        viewWrapperLikes.layer.cornerRadius = viewWrapperLikes.frame.width / 2
-        viewWrapperLikes.layer.borderColor = UIColor.systemOrange.cgColor
-        viewWrapperLikes.layer.borderWidth = 2.0
-        
-        btnDisLike.tag = 12
-        btnDisLike.isUserInteractionEnabled = true
-        viewWrapperDisLikes.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        viewWrapperDisLikes.layer.masksToBounds = false
-        viewWrapperDisLikes.layer.cornerRadius = viewWrapperDisLikes.frame.width / 2
-        viewWrapperDisLikes.layer.borderColor = UIColor.systemOrange.cgColor
-        viewWrapperDisLikes.layer.borderWidth = 2.0
-        lblLikeCounts.textColor = UIColor.white
-        txtWriteComment.autocorrectionType = .no
-        txtWriteComment.delegate = self
-        tblCommentsList.tableFooterView = UIView()
-        tblCommentsList.separatorStyle = .none;
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600)) {
-            self.viewWrapperCount.isHidden = false
-            self.viewWrapperDisLikes.isHidden = false
-            self.viewWrapperLikes.isHidden = false
-        }
-        
-        if let thumbnailInfo = _thumbnailInfo {
-            lblCaption.text = thumbnailInfo.caption
-            lblLikeCounts.text = String(thumbnailInfo.likesCount)
-        }
-        
-        _urlAddress = self.findVideo(caption: _thumbnailInfo?.caption ?? "")
-        viewWebViewWrapper.showVideo(urlAddress: self._urlAddress)
+        let urlAddress = self.findYoutubeVideo(caption: _thumbnailInfo?.caption ?? "")
+        if !urlAddress.isEmpty {
             
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+            /// Set accessiblity identifier
+            viewWebViewWrapper.accessibilityIdentifier = "viewWebViewWrapper"
+            
+            /// Set caption label properties
+            lblCaption.text = _thumbnailInfo?.caption
+            lblCaption.textColor = UIColor.systemOrange
+            
+            lblLikeCounts.accessibilityIdentifier = "lblLikeCounts"
+            viewWrapperCount.isHidden = true
+            
+            /// Set Like button properties
+            btnLike.tag = 11
+            btnLike.isUserInteractionEnabled = true
+            btnLike.accessibilityIdentifier = "btnLike"
+            viewWrapperLikes.isHidden = true
+            viewWrapperLikes.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+            viewWrapperLikes.layer.masksToBounds = false
+            viewWrapperLikes.layer.cornerRadius = viewWrapperLikes.frame.width / 2
+            viewWrapperLikes.layer.borderColor = UIColor.systemOrange.cgColor
+            viewWrapperLikes.layer.borderWidth = 2.0
+            
+            /// Set Dislike button properties
+            btnDisLike.tag = 12
+            btnDisLike.isUserInteractionEnabled = true
+            btnDisLike.accessibilityIdentifier = "btnDisLike"
+            viewWrapperDisLikes.isHidden = true
+            viewWrapperDisLikes.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+            viewWrapperDisLikes.layer.masksToBounds = false
+            viewWrapperDisLikes.layer.cornerRadius = viewWrapperDisLikes.frame.width / 2
+            viewWrapperDisLikes.layer.borderColor = UIColor.systemOrange.cgColor
+            viewWrapperDisLikes.layer.borderWidth = 2.0
+            lblLikeCounts.textColor = UIColor.white
+            
+            /// Set comment  text field  properties
+            txtWriteComment.isHidden = true
+            txtWriteComment.autocorrectionType = .no
+            txtWriteComment.delegate = self
+            txtWriteComment.accessibilityIdentifier = "txtWriteComment"
+
+            /// Set comment  list  properties
+            tblCommentsList.tableFooterView = UIView()
+            tblCommentsList.separatorStyle = .none
+            tblCommentsList.isHidden = true
+            tblCommentsList.accessibilityIdentifier = "tblCommentsList"
+            
+            if let thumbnailInfo = _thumbnailInfo {
+                lblCaption.text = thumbnailInfo.caption
+                lblLikeCounts.text = String(thumbnailInfo.likesCount)
+            }
+            
+            viewWebViewWrapper.showVideo(urlAddress: urlAddress)
+            
+            /// Show the ux after a slight delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(700)) {
+                self.viewWrapperCount.isHidden = false
+                self.viewWrapperDisLikes.isHidden = false
+                self.viewWrapperLikes.isHidden = false
+                self.txtWriteComment.isHidden = false
+                self.tblCommentsList.isHidden = false
+            }
+            
+            /// Gesture notification
+            let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+            view.addGestureRecognizer(tapGesture)
+            
+            /// Keyboard notification
+            NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+            
+            /// Video full screen notification
+            NotificationCenter.default.addObserver(self, selector: #selector(onVideoDidEnterFullscreen), name: UIWindow.didBecomeVisibleNotification, object: view.window)
+            NotificationCenter.default.addObserver(self, selector: #selector(onVideoDidLeaveFullscreen), name: UIWindow.didBecomeHiddenNotification, object: view.window)
+        }
+        else {
+            viewWebViewWrapper.showError()
+            lblCaption.text = "No video found..."
+            
+            viewWrapperCount.isHidden = true
+            viewWrapperDisLikes.isHidden = true
+            viewWrapperLikes.isHidden = true
+            tblCommentsList.isHidden = true
+            txtWriteComment.isHidden = true
+        }
+            
         /// Lock the orientation for this view controller
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         appdelegate.allowRotate = false
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-    }
-    
-    @IBAction func onBtnActionLikeOrDislike(_ sender: BounceButton) {
-        if sender.tag == 11 {
-            sender.setImage(UIImage(named: "heart_filled"), for: UIControl.State.normal)
-            
-        }
-        else if sender.tag == 12 {
-            sender.setImage(UIImage(named: "cross_filled"), for: UIControl.State.normal)
-        }
         
-        sender.likeBounce(0.6)
-        sender.animate()
-        
-        guard let view = sender.superview else {
-            return
-        }
-        
-        view.layer.borderColor = UIColor.systemRed.cgColor
-    
-        if sender.tag == 11 {
-            btnLike.isUserInteractionEnabled = false
-            btnDisLike.isUserInteractionEnabled = false
-            _thumbnailInfo?.likesCount += 1
-            
-            if let thumbnailInfo = _thumbnailInfo {
-                lblLikeCounts.text = String(thumbnailInfo.likesCount)
-            }
-        }
-        else if sender.tag == 12 {
-            btnLike.isUserInteractionEnabled = false
-            btnDisLike.isUserInteractionEnabled = false
-        }
     }
     
     // MARK: Table view methods
@@ -178,19 +193,23 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
     }
     
-    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return _cellHeight
     }
     
     // MARK: Textfield Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        
+        if (textField.text!.isEmpty) {
+            return false
+        }
         
         if let thumbnailInfo = _thumbnailInfo {
             thumbnailInfo.comments.append(textField.text!)
@@ -201,7 +220,59 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: Event Methods
-    @objc public func keyboardWillShow(notification: NSNotification) {
+    @IBAction func onBtnActionLikeOrDislike(_ sender: BounceButton) {
+        if sender.tag == 11 {
+            sender.setImage(UIImage(named: "heart_filled"), for: UIControl.State.normal)
+            
+        }
+        else if sender.tag == 12 {
+            sender.setImage(UIImage(named: "cross_filled"), for: UIControl.State.normal)
+        }
+        
+        sender.setLikeBounce(0.6)
+        sender.playAnimate()
+        
+        guard let view = sender.superview else {
+            return
+        }
+        
+        view.layer.borderColor = UIColor.systemRed.cgColor
+    
+        if sender.tag == 11 {
+            btnLike.isUserInteractionEnabled = false
+            btnDisLike.isUserInteractionEnabled = false
+            _thumbnailInfo?.likesCount += 1
+            
+            if let thumbnailInfo = _thumbnailInfo {
+                lblLikeCounts.text = String(thumbnailInfo.likesCount)
+            }
+        }
+        else if sender.tag == 12 {
+            btnLike.isUserInteractionEnabled = false
+            btnDisLike.isUserInteractionEnabled = false
+        }
+    }
+    
+    @objc func onBtnDelete(sender: UIButton){
+        if let thumbnailInfo = _thumbnailInfo {
+            thumbnailInfo.comments.remove(at: sender.tag)
+        }
+        tblCommentsList.reloadData()
+    }
+    
+    @objc func onVideoDidEnterFullscreen(_ notification: Notification) {
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate.allowRotate = true
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+    }
+    
+    @objc func onVideoDidLeaveFullscreen(_ notification: Notification) {
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate.allowRotate = false
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+    }
+    
+    @objc func onKeyboardWillShow(notification: NSNotification) {
         if let _ = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
 
             if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -229,7 +300,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
-    @objc public func keyboardWillHide(notification: NSNotification) {
+    @objc public func onKeyboardWillHide(notification: NSNotification) {
         if let _ = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if let _: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                     let duration:TimeInterval = (notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -250,11 +321,4 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @objc func onBtnDelete(sender: UIButton){
-        if let thumbnailInfo = _thumbnailInfo {
-            thumbnailInfo.comments.remove(at: sender.tag)
-        }
-        tblCommentsList.reloadData()
-    }
-
 }

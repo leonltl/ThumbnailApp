@@ -3,6 +3,7 @@ import UIKit
 
 internal class SpinnerLayer: CAShapeLayer {
     
+    // MARK: - Properties
     internal var length: CGFloat = 32.0
     var color: CGColor? = UIColor.white.cgColor {
         willSet {
@@ -19,6 +20,7 @@ internal class SpinnerLayer: CAShapeLayer {
         setUp(frame: frame)
     }
     
+    /// Setup the ux properties and constraints
     func setUp(frame: CGRect) {
         self.frame = CGRect(x: 0, y: 0, width: length, height: length)
         let center = CGPoint(x: (frame.width / 2) - (length / 2), y: frame.height/2 - (length / 2))
@@ -33,6 +35,7 @@ internal class SpinnerLayer: CAShapeLayer {
         self.isHidden = true
     }
     
+    /// Update the framee
     func update(frame: CGRect) {
         self.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
         let center = CGPoint(x: (frame.width / 2), y: frame.height/2 - (frame.width / 8))
@@ -43,9 +46,10 @@ internal class SpinnerLayer: CAShapeLayer {
     }
 }
 
-// MARK: - Animation Methods
+// MARK: Animation Methods
 internal extension SpinnerLayer {
     
+    /// Animation logic
     func startAnimation() {
         let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
         strokeStartAnimation.fromValue = -0.5

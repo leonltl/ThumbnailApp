@@ -2,6 +2,8 @@
 import UIKit
 
 class CommentTableCell: UITableViewCell {
+    
+    /// ux variables
     @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var lblComment: PaddedLabel!
     

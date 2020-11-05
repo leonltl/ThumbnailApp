@@ -63,21 +63,16 @@ class VideoWebView: WKWebView {
     }
     
     func playVideo() {
-        // NOTE: These two lines would normally be called by the didSet on text, but not if you're in an initializer
         self.urls = urlAddress.extractURLs()
         refreshContents()
     }
 
-    /// Called whenever the URLs are updated (or you can call it manually) to load the first video url found in text or set in URLs
-    /// into the body of this webview.
+    /// Called whenever the urls are updated into the body of this webview.
     func refreshContents() {
-
         for url in self.urls {
             let videoLink: String?
 
             if(url.host?.contains("youtu") ?? false) {
-
-                // Fool proof video ID decoding
                 let host = "https://www.youtube.com/embed/"
                 let query = playsInline ? "?rel=0&playsinline=1" : "?rel=0"
                 if (url.host?.contains("youtube.com") ?? false) {
@@ -100,7 +95,7 @@ class VideoWebView: WKWebView {
                 videoLink = nil
             }
 
-            // Ok, if we found a video there, load it into the pane and then stop searching
+            /// found a video there, load it into the pane and then stop searching
             if let link = videoLink {
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.loadHTMLString(self.iframeForLink(link), baseURL: nil)

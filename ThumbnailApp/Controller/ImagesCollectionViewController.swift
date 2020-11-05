@@ -47,6 +47,7 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
+        self.collectionView.accessibilityIdentifier = "ImagesCollectionViewController"
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: #selector(onPullToRefresh(_:)), for: .valueChanged)

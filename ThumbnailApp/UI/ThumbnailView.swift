@@ -6,33 +6,33 @@ internal extension ThumbnailView {
     
     /// download the images
     func download(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        if (spinner.isHidden) {
-            spinner.isHidden = false
-            spinner.startAnimation()
+        if (loadingSpinner.isHidden) {
+            loadingSpinner.isHidden = false
+            loadingSpinner.startAnimation()
         }
         
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 DispatchQueue.main.async() { [weak self] in
-                    self?.spinner.isHidden = true
-                    self?.spinner.stopAnimation()
+                    self?.loadingSpinner.isHidden = true
+                    self?.loadingSpinner.stopAnimation()
                 }
                 return
             }
             
             guard let imageData = UIImage(data: data) else {
                 DispatchQueue.main.async() { [weak self] in
-                    self?.spinner.isHidden = true
-                    self?.spinner.stopAnimation()
+                    self?.loadingSpinner.isHidden = true
+                    self?.loadingSpinner.stopAnimation()
                 }
                 return
             }
             
             DispatchQueue.main.async() { [weak self] in
                 self?.thumbnailImage.image = imageData
-                self?.spinner.isHidden = true
-                self?.spinner.stopAnimation()
+                self?.loadingSpinner.isHidden = true
+                self?.loadingSpinner.stopAnimation()
             }
         }.resume()
         
@@ -40,8 +40,8 @@ internal extension ThumbnailView {
     
     /// download the images
     func download(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        spinner.isHidden = false
-        spinner.startAnimation()
+        loadingSpinner.isHidden = false
+        loadingSpinner.startAnimation()
         
         guard let url = URL(string: link) else {
             return
@@ -54,7 +54,7 @@ class ThumbnailView: UIView {
     
     internal var animationDuration: CFTimeInterval = 0.1
     
-    // MARK: - Initializers
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
@@ -73,14 +73,15 @@ class ThumbnailView: UIView {
         return imageView
     }()
 
-    // Sets the duration of the animations
+    /// Sets the duration of the animations
     public var duration: Double = 0.2 {
         willSet {
             animationDuration = newValue
         }
     }
     
-    internal lazy var spinner: SpinnerLayer = {
+    /// Loading spinner
+    internal lazy var loadingSpinner: SpinnerLayer = {
         let spinner = SpinnerLayer(frame: self.bounds)
         self.layer.addSublayer(spinner)
         return spinner
@@ -90,10 +91,11 @@ class ThumbnailView: UIView {
     /// Sets the spinner color
     public var spinnerColor: CGColor? {
         willSet {
-            spinner.color = newValue
+            loadingSpinner.color = newValue
         }
     }
     
+    /// Setup the ux and constraints
     func setUp() {
         // thunbnail constraint
         let thumbnailHConstraints = NSLayoutConstraint.constraints(withVisualFormat: ("H:|-0-[v0]-0-|"), options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": thumbnailImage])
@@ -110,6 +112,6 @@ class ThumbnailView: UIView {
         thumbnailImage.layer.shadowOpacity = 0.7
         thumbnailImage.layer.shadowRadius = 4.0
         
-        self.spinner.color = UIColor.systemOrange.cgColor
+        self.loadingSpinner.color = UIColor.systemOrange.cgColor
     }
 }

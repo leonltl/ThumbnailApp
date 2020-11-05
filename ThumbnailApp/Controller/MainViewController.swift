@@ -4,7 +4,9 @@ import UIKit
 // MARK: - Logic Methods
 internal extension MainViewController {
     
-    ///Method to load the pictures
+    /// Method to load the pictures
+    /// - Parameters:
+    ///   - url: the url address of the rest api
     func loadPictures(url: URL) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let _ = error {
@@ -37,7 +39,7 @@ internal extension MainViewController {
         }.resume()
     }
     
-    ///Method to display error when there are no thumbnail
+    /// Method to display error when there are no thumbnail
     private func displayNoThumbnail() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.btnLoadPictures.animate(animation: .expand)
@@ -45,7 +47,7 @@ internal extension MainViewController {
         }
     }
     
-    ///Method to display all the thumbnails
+    /// Method to display all the thumbnails
     private func displayThumbnails(thumbnails: [ThumbnailInfo]) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.btnLoadPictures.animate(animation: .expand)
@@ -58,8 +60,7 @@ internal extension MainViewController {
 
 // MARK: Event Actions
 internal extension MainViewController {
-    @objc
-    func onListenToLoadPictures(_ sender: Any) {
+    @objc func onListenToLoadPictures(_ sender: Any) {
         self.btnLoadPictures.storedTitle = "Load Pictures"
         btnLoadPictures.animate(animation: .collapse)
         imagesController?.clearThumbnailList()
@@ -71,17 +72,16 @@ internal extension MainViewController {
         
         self.loadPictures(url: url)
     }
-    
 }
 
 class MainViewController: UIViewController {
     
-    ///ux variables
+    /// ux variables
     @IBOutlet weak var viewBtnLoadPicturesWrapper: UIView!
     @IBOutlet weak var btnLoadPictures: SpinnerButton!
     @IBOutlet weak var containerImages: UIView!
     
-    ///non ux variables
+    /// non ux variables
     private var imagesController:ImagesCollectionViewController?
     private var apiUrl:String = "https://mnktechnology.com/tech/mytester/web/web-service/dev-get-image-list"
     
@@ -94,6 +94,8 @@ class MainViewController: UIViewController {
         self.navigationItem.backBarButtonItem = barButtonItem
         
         NotificationCenter.default.addObserver(self, selector: #selector(onListenToLoadPictures), name: Notification.Name("TriggerLoadPictures"), object: nil)
+        
+        self.navigationController?.accessibilityLabel = "MainViewController"
     }
     
     override func viewDidAppear(_ animated: Bool) {

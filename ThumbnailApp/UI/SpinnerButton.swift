@@ -9,6 +9,7 @@ public enum AnimationType {
 
 
 public class SpinnerButton: UIButton {
+    
     // MARK: - Properties
     internal var storedTitle: String?
     internal var animationDuration: CFTimeInterval = 0.1
@@ -86,6 +87,7 @@ public class SpinnerButton: UIButton {
         self.spinner.update(frame: spinnerFrame)
     }
     
+    /// Setup the ux properties and constraints
     func setUp() {
         self.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         self.backgroundColor = UIColor.systemOrange

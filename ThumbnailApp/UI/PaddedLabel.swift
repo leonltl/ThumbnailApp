@@ -3,10 +3,10 @@ import UIKit
 
 class PaddedLabel: UILabel {
     
-    var topInset: CGFloat = 4.0
-    var rightInset: CGFloat = 8.0
-    var leftInset: CGFloat = 8.0
-    var bottomInset: CGFloat = 4.0
+    internal var topInset: CGFloat = 4.0
+    internal var rightInset: CGFloat = 8.0
+    internal var leftInset: CGFloat = 8.0
+    internal var bottomInset: CGFloat = 4.0
     
     override func drawText(in rect: CGRect) {
         let rect = self.textRect(forBounds: rect, limitedToNumberOfLines: self.numberOfLines)
@@ -37,7 +37,8 @@ class PaddedLabel: UILabel {
             case .bottom:
                 return CGRect(x: self.bounds.size.width - rect.size.width + leftInset, y: bounds.origin.y + topInset + (bounds.size.height - rect.size.height), width: rect.size.width - rightInset, height: rect.size.height)
             }
-        } else {
+        }
+        else {
             switch verticalAlignment {
             case .top:
                 return CGRect(x: bounds.origin.x + leftInset, y: bounds.origin.y + topInset, width: rect.size.width, height: rect.size.height)

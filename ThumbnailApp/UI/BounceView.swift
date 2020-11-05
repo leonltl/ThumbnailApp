@@ -108,10 +108,6 @@ class BounceView: UIView{
         self.explosionInLayer.setValue(0, forKeyPath: "emitterCells.charge.birthRate")
         self.explosionOutLayer.setValue(0, forKeyPath: "emitterCells.explosion.birthRate")
     }
-      
-    
-    
-    
-    
+ 
     
 }

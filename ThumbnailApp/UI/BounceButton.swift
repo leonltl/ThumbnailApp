@@ -37,7 +37,7 @@ class BounceButton: UIButton{
         self.insertSubview(self.bounceView, at: 0)
     }
     
-    func animate () {
+    func playAnimate () {
         let delay = DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: delay) {
             self.bounceView.animate()
@@ -45,7 +45,7 @@ class BounceButton: UIButton{
     }
 
     // MARK: Animations
-    func likeBounce (_ duration: TimeInterval) {
+    func setLikeBounce (_ duration: TimeInterval) {
         self.transform = CGAffineTransform.identity
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIView.KeyframeAnimationOptions(), animations: {
             
@@ -75,7 +75,7 @@ class BounceButton: UIButton{
         
     }
     
-    func unLikeBounce (_ duration: TimeInterval) {
+    func setUnLikeBounce (_ duration: TimeInterval) {
         self.transform = CGAffineTransform.identity
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIView.KeyframeAnimationOptions(), animations: {
             

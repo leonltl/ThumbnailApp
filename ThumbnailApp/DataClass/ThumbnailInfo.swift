@@ -1,5 +1,5 @@
 
-/// Store the properties inside a base class so that any new properties can be added or initiailize
+/// Class that store the properties inside a base class so that any new properties can be added or initiailize
 public class BaseThumbnailInfoData {
     enum CodingKeys: String, CodingKey {
         case imageUrl
@@ -12,7 +12,7 @@ public class BaseThumbnailInfoData {
     public var comments: [String] = [String]()
 }
 
-/// Inherit the decodable class for decoding purposes
+/// Class that inherit the decodable class for decoding purposes
 public class ThumbnailInfo : BaseThumbnailInfoData, Decodable {
     required public init(from decoder: Decoder) throws {
         super.init()

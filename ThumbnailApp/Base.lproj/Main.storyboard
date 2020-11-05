@@ -250,16 +250,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ex9-iB-BJq">
-                                                <rect key="frame" x="0.0" y="361" width="414" height="80"/>
+                                                <rect key="frame" x="0.0" y="361" width="414" height="65"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKE-fd-hky">
-                                                        <rect key="frame" x="80" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="80" y="0.0" width="65" height="65"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1up-Pv-Mi6" customClass="BounceButton" customModule="ThumbnailApp" customModuleProvider="target">
-                                                                <rect key="frame" x="14" y="14" width="52" height="52"/>
+                                                                <rect key="frame" x="11.5" y="11.5" width="42" height="42"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="52" id="gUm-aD-Do1"/>
-                                                                    <constraint firstAttribute="height" constant="52" id="sHw-qy-aqS"/>
+                                                                    <constraint firstAttribute="width" constant="42" id="gUm-aD-Do1"/>
+                                                                    <constraint firstAttribute="height" constant="42" id="sHw-qy-aqS"/>
                                                                 </constraints>
                                                                 <state key="normal" image="heart_empty"/>
                                                                 <connections>
@@ -269,20 +269,20 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="80" id="VED-0D-m3e"/>
-                                                            <constraint firstAttribute="height" constant="80" id="VcC-jV-JwR"/>
+                                                            <constraint firstAttribute="width" constant="65" id="VED-0D-m3e"/>
+                                                            <constraint firstAttribute="height" constant="65" id="VcC-jV-JwR"/>
                                                             <constraint firstItem="1up-Pv-Mi6" firstAttribute="centerY" secondItem="kKE-fd-hky" secondAttribute="centerY" id="sIa-ch-lZl"/>
                                                             <constraint firstItem="1up-Pv-Mi6" firstAttribute="centerX" secondItem="kKE-fd-hky" secondAttribute="centerX" id="yyB-tq-usZ"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKC-ff-6Ni">
-                                                        <rect key="frame" x="254" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="269" y="0.0" width="65" height="65"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQQ-mA-Qmy" customClass="BounceButton" customModule="ThumbnailApp" customModuleProvider="target">
-                                                                <rect key="frame" x="19" y="19" width="42" height="42"/>
+                                                                <rect key="frame" x="14.5" y="14.5" width="36" height="36"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="42" id="aDz-Da-oPU"/>
-                                                                    <constraint firstAttribute="width" constant="42" id="wcm-Eg-GHJ"/>
+                                                                    <constraint firstAttribute="height" constant="36" id="aDz-Da-oPU"/>
+                                                                    <constraint firstAttribute="width" constant="36" id="wcm-Eg-GHJ"/>
                                                                 </constraints>
                                                                 <state key="normal" image="cross"/>
                                                                 <connections>
@@ -292,10 +292,10 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="HFQ-H6-ntV"/>
+                                                            <constraint firstAttribute="height" constant="65" id="HFQ-H6-ntV"/>
                                                             <constraint firstItem="jQQ-mA-Qmy" firstAttribute="centerX" secondItem="hKC-ff-6Ni" secondAttribute="centerX" id="LGu-jK-Vjp"/>
                                                             <constraint firstItem="jQQ-mA-Qmy" firstAttribute="centerY" secondItem="hKC-ff-6Ni" secondAttribute="centerY" id="eoR-cZ-fws"/>
-                                                            <constraint firstAttribute="width" constant="80" id="oZ0-o1-Kaq"/>
+                                                            <constraint firstAttribute="width" constant="65" id="oZ0-o1-Kaq"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -304,7 +304,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="hKC-ff-6Ni" secondAttribute="trailing" constant="80" id="6yj-vh-JAL"/>
                                                     <constraint firstItem="kKE-fd-hky" firstAttribute="leading" secondItem="ex9-iB-BJq" secondAttribute="leading" constant="80" id="Kmj-1V-wxQ"/>
                                                     <constraint firstItem="kKE-fd-hky" firstAttribute="top" secondItem="ex9-iB-BJq" secondAttribute="top" id="TN1-6x-XM3"/>
-                                                    <constraint firstAttribute="height" constant="80" id="WpG-fD-V4Z"/>
+                                                    <constraint firstAttribute="height" constant="65" id="WpG-fD-V4Z"/>
                                                     <constraint firstItem="hKC-ff-6Ni" firstAttribute="top" secondItem="ex9-iB-BJq" secondAttribute="top" id="r7Z-f9-qvU"/>
                                                 </constraints>
                                             </view>
@@ -315,7 +315,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ctK-q1-chr">
-                                                <rect key="frame" x="0.0" y="465" width="414" height="139"/>
+                                                <rect key="frame" x="0.0" y="448" width="414" height="156"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="wGh-fA-Rn8" customClass="CommentTableCell" customModule="ThumbnailApp" customModuleProvider="target">
@@ -376,7 +376,7 @@
                                         <constraints>
                                             <constraint firstItem="ex9-iB-BJq" firstAttribute="leading" secondItem="cF1-ac-xhk" secondAttribute="leading" id="3eR-ZC-htd"/>
                                             <constraint firstAttribute="trailing" secondItem="7U1-Fa-AfX" secondAttribute="trailing" id="4tO-Li-jPP"/>
-                                            <constraint firstItem="ctK-q1-chr" firstAttribute="top" secondItem="ex9-iB-BJq" secondAttribute="bottom" constant="24" id="7CE-8k-eng"/>
+                                            <constraint firstItem="ctK-q1-chr" firstAttribute="top" secondItem="ex9-iB-BJq" secondAttribute="bottom" constant="22" id="7CE-8k-eng"/>
                                             <constraint firstAttribute="trailing" secondItem="ex9-iB-BJq" secondAttribute="trailing" id="9uC-4e-roG"/>
                                             <constraint firstItem="qPL-xt-Foi" firstAttribute="leading" secondItem="cF1-ac-xhk" secondAttribute="leading" id="Aah-Hh-v16"/>
                                             <constraint firstItem="vYF-wf-wa6" firstAttribute="top" secondItem="ctK-q1-chr" secondAttribute="bottom" constant="7" id="CGN-Wa-0bX"/>
