@@ -5,9 +5,9 @@ This thumbmnail project is written in Swift 5 using XCode 12.1 and tested on iPh
 - Added a zoom icon button at top right of each thumbnail to view the picture in a full screen mode as the picture is very nice
 - Added a next icon button to view a youtube video that is corresponding to the caption, able to like or dislike the video and add comment to it. 
 
-![Show list of images](https://github.com/leonltl/ThumbnailApp/blob/main/Show_list_of_images.png) <!-- .element style="height:50%" -->
-![Show details](https://github.com/leonltl/ThumbnailApp/blob/main/Show_details.png)  <!-- .element style="height:50%" -->
-![Show text fields](https://github.com/leonltl/ThumbnailApp/blob/main/Show_text_fields.png)  <!-- .element style="height:50%" -->
+![Show list of images|256x400](https://github.com/leonltl/ThumbnailApp/blob/main/Show_list_of_images.png) 
+![Show details](https://github.com/leonltl/ThumbnailApp/blob/main/Show_details.png) 
+![Show text fields](https://github.com/leonltl/ThumbnailApp/blob/main/Show_text_fields.png) 
 
 ## Build Instruction
 **Using Xcode**
