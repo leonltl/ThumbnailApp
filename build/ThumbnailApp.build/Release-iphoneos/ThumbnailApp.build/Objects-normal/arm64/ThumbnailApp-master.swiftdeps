@@ -1,0 +1,23 @@
+version: "Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)"
+options: "cfec00c2a124ac5026b724d25e274b32"
+build_time: [1604678332, 903913000]
+inputs:
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/Controller/DetailViewController.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/YoutubeWebView.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/VideoView.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/Controller/EnlargeImageViewController.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/CommentTableCell.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/SpinnerButton.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/Controller/MainViewController.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/PaddedLabel.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/Controller/ImagesCollectionViewController.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/ErrorCollectionCell.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/DataClass/ThumbnailInfo.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/SpinnerLayer.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/Extension/StringUtility.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/BounceButton.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/AppDelegate.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/ThumbnailView.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/BounceView.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/UI/ThumbnailCollectionCell.swift": [9223372036, 854775807]
+  "/Users/leonard/Documents/IosProject/ThumbnailApp/ThumbnailApp/SceneDelegate.swift": [9223372036, 854775807]

@@ -1,9 +1,11 @@
 
 # Readme 
 ## Introduction
-This thumbmnail project is written in Swift 5 using XCode 12.1 and tested on iPhone simulator 8 & 11. It tries to be as similar to the mockup from the document. There are also enhancements added too.
+This thumbmnail project is written in Swift 5 using XCode 12.1 and tested on iPhone simulator 11. It tries to be as similar to the mockup from the document. There are enhancements added too based on my thinking and idea.
 - Added a zoom icon button at top right of each thumbnail to view the picture in a full screen mode as the picture is very nice
 - Added a next icon button to view a youtube video that is corresponding to the caption, able to like or dislike the video and add comment to it. 
+
+
 
 
 ## Build Instruction
@@ -29,10 +31,16 @@ Run test (using iPhone 11 simulator as example)
 xcodebuild test -scheme ThumbnailApp CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"  -destination "name=iPhone 11"
 ```
 ## Application Test
+Thunbnail class whether it can read the json data correctly
 Automation test is only done for Thumbnail List to test the functionality
 - tapping of the loading button 
 - revealing the list of thumbnails
-- Thunbnail class whether it can read the json data correctly
+- select the next button from a thumbnail
+- play the youtube video
+- press the like button
+- text and add a comment
+- delete a comment
+
 
 
 ## Design
@@ -48,4 +56,9 @@ It is embedded in the Main View Controller Scene within the Storyboard and contr
 
 ### DetailViewController
 -  The controller class that is attached to Detail View Controller Scene in Storyboard 
-It is to display a video after selecting a thumbnail and control the logic of different matching video to the caption of the thumbnail. 
+It is to display a youtube video after selecting a thumbnail and control the logic of different matching video to the caption of the thumbnail and able to like or dislike the video. This controller also able to add comments or delete comments. 
+
+### EnlargeImageViewController
+-  The controller class that is attached to Enlarge Image View Controller Scene in Storyboard 
+It is to display the image in a full screen mode  
+
