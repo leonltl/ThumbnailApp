@@ -65,9 +65,8 @@ class ThumbnailView: UIView {
         setUp()
     }
     
-    internal lazy var thumbnailImage:UIImageView = {
+    lazy var thumbnailImage:UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageView)
         return imageView

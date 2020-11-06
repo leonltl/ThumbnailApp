@@ -25,6 +25,7 @@
 		D744202E254D7C2200E003EB /* SpinnerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D744202D254D7C2200E003EB /* SpinnerLayer.swift */; };
 		D76766632552D84400E1D1E7 /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76766622552D84400E1D1E7 /* CommentTableCell.swift */; };
 		D76766712553008400E1D1E7 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76766702553008400E1D1E7 /* PaddedLabel.swift */; };
+		D7676679255580AD00E1D1E7 /* EnlargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7676678255580AC00E1D1E7 /* EnlargeImageViewController.swift */; };
 		D79F03EC254FB4A400AB3461 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F03EB254FB4A400AB3461 /* DetailViewController.swift */; };
 		D79F03FA254FDE9200AB3461 /* YoutubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F03F9254FDE9100AB3461 /* YoutubeWebView.swift */; };
 		D79F0400254FDEDB00AB3461 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F03FF254FDEDB00AB3461 /* StringUtility.swift */; };
@@ -74,6 +75,7 @@
 		D744202D254D7C2200E003EB /* SpinnerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerLayer.swift; sourceTree = "<group>"; };
 		D76766622552D84400E1D1E7 /* CommentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
 		D76766702553008400E1D1E7 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		D7676678255580AC00E1D1E7 /* EnlargeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargeImageViewController.swift; sourceTree = "<group>"; };
 		D79F03EB254FB4A400AB3461 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D79F03F9254FDE9100AB3461 /* YoutubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeWebView.swift; sourceTree = "<group>"; };
 		D79F03FF254FDEDB00AB3461 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				D79F03EB254FB4A400AB3461 /* DetailViewController.swift */,
 				D7441F55254D0ACB00E003EB /* MainViewController.swift */,
 				D7441FEA254D3F9200E003EB /* ImagesCollectionViewController.swift */,
+				D7676678255580AC00E1D1E7 /* EnlargeImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				D79F03EC254FB4A400AB3461 /* DetailViewController.swift in Sources */,
 				D79F03FA254FDE9200AB3461 /* YoutubeWebView.swift in Sources */,
 				D733602425505937006D10C0 /* VideoView.swift in Sources */,
+				D7676679255580AD00E1D1E7 /* EnlargeImageViewController.swift in Sources */,
 				D76766632552D84400E1D1E7 /* CommentTableCell.swift in Sources */,
 				D7442020254D730800E003EB /* SpinnerButton.swift in Sources */,
 				D7441F56254D0ACB00E003EB /* MainViewController.swift in Sources */,

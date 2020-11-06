@@ -163,7 +163,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         /// Lock the orientation for this view controller
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        appdelegate.allowRotate = false
+        appdelegate.rotationMode = 1
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         
     }
@@ -262,13 +262,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @objc func onVideoDidEnterFullscreen(_ notification: Notification) {
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        appdelegate.allowRotate = true
+        appdelegate.rotationMode = 0
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
     @objc func onVideoDidLeaveFullscreen(_ notification: Notification) {
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        appdelegate.allowRotate = false
+        appdelegate.rotationMode = 1
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     

@@ -1,7 +1,9 @@
 
 # Readme 
 ## Introduction
-This thumbmnail project is written in Swift 5 using XCode 12.1 and tested on iPhone simulator 8 & 11. It tries to be as similar to the mockup.
+This thumbmnail project is written in Swift 5 using XCode 12.1 and tested on iPhone simulator 8 & 11. It tries to be as similar to the mockup from the document. There are also enhancements added too.
+- Added a zoom icon button at top right of each thumbnail to view the picture in a full screen mode as the picture is very nice
+- Added a next icon button to view a youtube video that is corresponding to the caption, able to like or dislike the video and add comment to it. 
 
 
 ## Build Instruction
@@ -14,7 +16,7 @@ Open terminal and execute the below code to build
 
 With code signing
  ```
- xcodebuild clean build -project SampleApp.xcodeproj
+ xcodebuild clean build -project ThumbnailApp.xcodeproj
 ```
 
 Without code signing

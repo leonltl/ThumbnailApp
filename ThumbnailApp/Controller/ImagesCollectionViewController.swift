@@ -39,6 +39,7 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
     private var _hasNoThumbnailToLoad:Bool = false
     private var _cellHeight:CGFloat = 275.0
     private var detailController:DetailViewController?
+    private var enlargeController:EnlargeImageViewController?
     
     /// ui variables
     private var refreshControl:UIRefreshControl!
@@ -113,6 +114,10 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
             cell.thumbnailWrapper.download(from: imageProperty.imageUrl)
             cell.lblCaption.text = imageProperty.caption
             cell.lblCaption.textColor = UIColor.orange
+            cell.btnNext.addTarget(self, action: #selector(onBtnNextEvent), for: .touchUpInside)
+            cell.btnNext.accessibilityIdentifier = "btnNext"
+            cell.btnZoom.addTarget(self, action: #selector(onBtnZoomNext), for: .touchUpInside)
+            cell.btnZoom.accessibilityIdentifier = "btnZoom"
             return cell
         }
                 
@@ -130,21 +135,42 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
         }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    // MARK: Button Events
+    @objc func onBtnNextEvent(sender: UIButton){
+        guard let cell = sender.superview?.superview as? ThumbnailCollectionCell else {
+            return
+        }
+
         if (!_hasNoThumbnailToLoad) {
-            //let cell = collectionView.cellForItem(at: indexPath) as! ThumbnailCollectionCell
-            let imageProperty = _thumbnailInfoData![indexPath.row]
+            let indexPath = self.collectionView.indexPath(for: cell)
+            let imageProperty = _thumbnailInfoData![indexPath!.row]
             self.performSegue(withIdentifier: "showInfoSegue", sender: imageProperty)
         }
     }
-  
     
-    // MARK: - Segue navigation function
+    @objc func onBtnZoomNext(sender: UIButton){
+        guard let cell = sender.superview?.superview as? ThumbnailCollectionCell else {
+            return
+        }
+
+        if (!_hasNoThumbnailToLoad) {
+            let indexPath = self.collectionView.indexPath(for: cell)
+            let imageProperty = _thumbnailInfoData![indexPath!.row]
+            self.performSegue(withIdentifier: "showEnlargeImageSegue", sender: imageProperty)
+        }
+    }
+    
+    // MARK: Segue navigation function
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showInfoSegue") {
             let embedVC = segue.destination as! DetailViewController
             detailController = embedVC
             detailController?._thumbnailInfo = sender as? ThumbnailInfo
+        }
+        else if (segue.identifier == "showEnlargeImageSegue") {
+            let embedVC = segue.destination as! EnlargeImageViewController
+            enlargeController = embedVC
+            enlargeController?._thumbnailInfo = sender as? ThumbnailInfo
         }
     }
     

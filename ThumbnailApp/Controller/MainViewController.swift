@@ -100,7 +100,8 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        appdelegate.allowRotate = true
+        appdelegate.rotationMode = 0
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
     override func viewDidLayoutSubviews() {
