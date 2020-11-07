@@ -137,7 +137,7 @@ class ImagesCollectionViewController: UICollectionViewController, UICollectionVi
     
     // MARK: Button Events
     @objc func onBtnNextEvent(sender: UIButton){
-        guard let cell = sender.superview?.superview as? ThumbnailCollectionCell else {
+        guard let cell = sender.superview?.superview?.superview as? ThumbnailCollectionCell else {
             return
         }
 
