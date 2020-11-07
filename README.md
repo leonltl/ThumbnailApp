@@ -5,9 +5,8 @@ This thumbmnail project is written in Swift 5 using XCode 12.1 and tested on iPh
 - Added a zoom icon button at top right of each thumbnail to view the picture in a full screen mode as the picture is very nice
 - Added a next icon button to view a youtube video that is corresponding to the caption, able to like or dislike the video and add comment to it. 
 
-<img src="https://github.com/leonltl/ThumbnailApp/blob/main/Show_list_of_images.png" width="350px">
+<img src="https://github.com/leonltl/ThumbnailApp/blob/main/screenshot.gif" width="350px">
 <br>
-<img src="https://github.com/leonltl/ThumbnailApp/blob/main/Show_details.png" width="350px">
 
 ## Build Instruction
 **Using Xcode**
@@ -47,19 +46,54 @@ Automation test is only done for Thumbnail List to test the functionality
 ## Design
 It contains navigating within 3 Controllers. The concept is to download a list of thumbnails from the Rest Api and selecting on the thumbnail will display a video corresponding to the caption. If there are no thumbnails received from the Rest Api, it will display error icon/  
 
-### MainViewController.swift
-- The main controller class that is attached to Main View Controller Scene in Storyboard
-It is to show the load pictures button and control the logic to download the list of thumbnails from the Rest Api and show the loading spinner.
+### Data Class
+#### ThumbnailInfo
+The class that map the data received from the Rest Api
 
-### ImagesCollectionViewController
-- The collection view controller class that is attached toImages Colleciton ViewScene in Storyboard
-It is embedded in the Main View Controller Scene within the Storyboard and control the logic to display the list of the thumbnails downloaded. It will also trigger the download when it is pulled down. If there are no thumbnails downloaded from the Rest Api, it will show error image
+### Controllers
+#### MainViewController.swift
+- Show the load pictures button and manage the logic to download the list of thumbnails from the Rest Api and show the loading spinner.
 
-### DetailViewController
--  The controller class that is attached to Detail View Controller Scene in Storyboard 
-It is to display a youtube video after selecting a thumbnail and control the logic of different matching video to the caption of the thumbnail and able to like or dislike the video. This controller also able to add comments or delete comments. 
+####  ImagesCollectionViewController
+- Control the logic to display the list of the thumbnails downloaded. It will also trigger the download when it is pulled down. If there are no thumbnails downloaded from the Rest Api, it will show error image
 
-### EnlargeImageViewController
--  The controller class that is attached to Enlarge Image View Controller Scene in Storyboard 
-It is to display the image in a full screen mode  
+#### DetailViewController
+-  Control the logic of different matching video to the caption of the thumbnail and able to like or dislike the video. This controller also able to add comments or delete comments. 
+
+#### EnlargeImageViewController
+- It is to display the image in a full screen mode  
+
+ ### Customize UI 
+#### Buttons
+- BounceButton
+Add a bounce effect when button pressed
+- SpinnerButton
+Add a loading  effect when button pressed
+
+#### Cell
+- CommentTableCell
+Group a label and a close button for the comment
+- ErrorCollcetionCell
+Group the error image and a error label
+- ThumbnailCollectionCell
+Group the image, caption and 2 buttons (Zoom buton and next button)
+
+#### View
+- BounceView
+Wrap the bounce effect in a circular wrapper
+- VideoView
+Wrap the youtube webview 
+
+#### Webview
+- YoutubeWebVideo
+Webview to play a youtube video
+
+#### Label
+- PaddedLabel
+Padded label to have left and right padding
+
+#### Others
+- SpinnerLayer
+For drawing a loading animation effect to a button
+
 

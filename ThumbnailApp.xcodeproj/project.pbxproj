@@ -134,7 +134,7 @@
 				D79F03FE254FDECA00AB3461 /* Extension */,
 				D744203B254DA06700E003EB /* Controller */,
 				D7441FB4254D1B7F00E003EB /* DataClass */,
-				D7441F91254D0CAC00E003EB /* UI */,
+				D7441F91254D0CAC00E003EB /* CustomizeUI */,
 				D7441F51254D0ACB00E003EB /* AppDelegate.swift */,
 				D7441F53254D0ACB00E003EB /* SceneDelegate.swift */,
 				D7441F57254D0ACB00E003EB /* Main.storyboard */,
@@ -163,22 +163,22 @@
 			path = ThumbnailAppUITests;
 			sourceTree = "<group>";
 		};
-		D7441F91254D0CAC00E003EB /* UI */ = {
+		D7441F91254D0CAC00E003EB /* CustomizeUI */ = {
 			isa = PBXGroup;
 			children = (
 				D76766622552D84400E1D1E7 /* CommentTableCell.swift */,
 				D7441FF2254D415900E003EB /* ThumbnailCollectionCell.swift */,
 				D744201A254D652F00E003EB /* ErrorCollectionCell.swift */,
 				D7441FFD254D4E7400E003EB /* ThumbnailView.swift */,
-				D744201F254D730800E003EB /* SpinnerButton.swift */,
-				D744202D254D7C2200E003EB /* SpinnerLayer.swift */,
 				D733602325505937006D10C0 /* VideoView.swift */,
 				D79F03F9254FDE9100AB3461 /* YoutubeWebView.swift */,
+				D744201F254D730800E003EB /* SpinnerButton.swift */,
+				D744202D254D7C2200E003EB /* SpinnerLayer.swift */,
 				D7E64C5A25518636009BC69B /* BounceButton.swift */,
 				D7E64C622551888B009BC69B /* BounceView.swift */,
 				D76766702553008400E1D1E7 /* PaddedLabel.swift */,
 			);
-			path = UI;
+			path = CustomizeUI;
 			sourceTree = "<group>";
 		};
 		D7441FB4254D1B7F00E003EB /* DataClass */ = {
